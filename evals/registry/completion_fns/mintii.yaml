@@ -1,4 +1,4 @@
-martian_router:
+mintii_router:
   class: evals.completion_fns.mintii_fns:RouterCompletionFn
   args:
     provider: Mintii
