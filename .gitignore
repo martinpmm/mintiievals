@@ -8,6 +8,8 @@ venv/
 .DS_Store
 .vscode/
 
+result_tmp.json
+
 # PyCharm folder metadata
 .idea/
 

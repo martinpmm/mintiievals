@@ -1,0 +1,6 @@
+martian_router:
+  class: evals.completion_fns.mintii_fns:RouterCompletionFn
+  args:
+    provider: Mintii
+    llm_kwargs:
+      model_name: router1

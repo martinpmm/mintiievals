@@ -6,7 +6,7 @@ import logging
 import shlex
 import sys
 from typing import Any, Mapping, Optional, Union, cast
-
+import json
 import evals
 import evals.api
 import evals.base
@@ -236,6 +236,9 @@ def run(args: OaiEvalArguments, registry: Optional[Registry] = None) -> str:
     logger.info("Final report:")
     for key, value in result.items():
         logger.info(f"{key}: {value}")
+        
+    with open("./result_tmp.json", "w") as f:
+        json.dump(result, f)
     return run_spec.run_id
 
 
