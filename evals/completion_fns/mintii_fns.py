@@ -36,7 +36,10 @@ class RouterCompletionFn(CompletionFn):
         if 'status_code' in response and response['status_code'] != 200:
             raise Exception('Router error')
         print(response)
-        return response["message_content"]
+        # Parse JSON response
+        response_data = response.json()
+        message_content = response_data.get("message_content", "")
+        return message_content
 
     @retry(stop=stop_after_attempt(3))
     def _post_request(self, data):
