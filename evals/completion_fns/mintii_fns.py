@@ -35,10 +35,11 @@ class RouterCompletionFn(CompletionFn):
         response = self._post_request(data)
         if 'status_code' in response and response['status_code'] != 200:
             raise Exception('Router error')
-        print(response)
-        # Parse JSON response
-        response_data = response.json()
+        
+        # Assuming 'response' is a dictionary and doesn't require .json() parsing
+        response_data = response  # Since response is already a dictionary
         message_content = response_data.get("message_content", "")
+        
         return message_content
 
     @retry(stop=stop_after_attempt(3))
